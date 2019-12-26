@@ -33,3 +33,7 @@ class Block:
     def __getitem__(self, key):
         key -= 1 # paper use 1-based index
         return Block(self.data[key * self.blocksize : (key + 1) * self.blocksize])
+
+    def __setitem__(self, key, value):
+        key -= 1 # paper use 1-based index
+        self.data = self.data[ : key * self.blocksize] + value.data + self.data[(key + 1) * self.blocksize : ]
