@@ -1,6 +1,6 @@
 # OCB2-POC
 
-Proof of Concept of [2019 attack](https://eprint.iacr.org/2019/311.pdf)
+Proof of Concept of [Cryptanalysis of OCB2: Attacks on Authenticity and Confidentiality](https://eprint.iacr.org/2019/311.pdf)
 
 ## Resource
 
