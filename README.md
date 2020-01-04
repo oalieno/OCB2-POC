@@ -95,11 +95,8 @@ result = Authenticated
 
 ### Universal Forgery
 
-SageMath version 8.8, Release Date: 2019-06-26 Using Python 3.7.3.  
-You can try [sagemath docker](https://hub.docker.com/r/sagemath/sagemath)
-
 ```
-$ sage ./universal-forgery.sage
+$ ./universal-forgery.py
 ----------
 Universal Forgery
 ----------
@@ -171,89 +168,55 @@ result = Authenticated
 ### Plaintext Recovery
 
 ```
-$ sage plaintext-recovery.sage
-----------
+$ ./plaintext-recovery.py
+--------------------
 Encryption Oracle
-----------
-[+] send nonce = 861a6e94d8cc667a64c8e12db0412bb1
-[+] send plain = 6c57b3858044d4d51594a6815b5639c59b8b4aa78c831ac7a1d5887fe14ee5b46abe60be59aa54cf3799d4dbd85f7e8c
-[+] get tag = 3f1f53ca6b9ee985b75c189c13596aa5
-[+] get cipher = 97c204333030879fe9c0513bf0d225a615c5abbfc23034e0054276a746d4411d5045f91788c1902204d12b169d8435a0
+--------------------
+[+] send nonce = 6cc906be9216eb2f1de590b708dd5620
+[+] send plain = 3b29bad89cafe97d5fd3fb27cb7befeb0588f2fcc11da0b579d2a847f93955f2d784d51e79ba1a08bb52719700596e0f
+[+] get cipher = 4d6cf1d9921c768a3290ea4795dc4e094846f9deeb09a7f12ec68bae9a3997d6bd0de6fc612a79457998a0d3e2176a86
+[+] get tag = 4a53551171401de90517f72479c5b27c
 
 ----------
 Plaintext Recovery
 ----------
-N = 861a6e94d8cc667a64c8e12db0412bb1
-T = 3f1f53ca6b9ee985b75c189c13596aa5
-C = 97c204333030879fe9c0513bf0d225a615c5abbfc23034e0054276a746d4411d5045f91788c1902204d12b169d8435a0
+N = 6cc906be9216eb2f1de590b708dd5620
+C = 4d6cf1d9921c768a3290ea4795dc4e094846f9deeb09a7f12ec68bae9a3997d6bd0de6fc612a79457998a0d3e2176a86
+T = 4a53551171401de90517f72479c5b27c
 
-----------
+--------------------
 Encryption Oracle
-----------
-[+] send nonce = aba587ee1f07f7802dcbe9d2f52d6de2
-[+] send plain = 05a63dcd7989095eef763df8be1d2945000000000000000000000000000000803ab1ab7726a6c7f33943341487706ecc
-[+] get tag = 8cee5b581735ed6980fc9d9efa2d33a5
-[+] get cipher = ca847e0b6dd7034dcf82a5e62e474c2684e70c6443cfc59a1e10178900cc85d158302045daa6de5f6fbb1fae4cc18ea7
+--------------------
+[+] send nonce = 7fae5d06a9257d3b9721a68b1743f531
+[+] send plain = dafab8e1f74c7d19fa2cc91bb8d9011a00000000000000000000000000000080caf1a7a5d0bb717119981dcfba9be275
+[+] get cipher = 1408ab9670ca67e0035da81f4a41d6d20854c639a6271c1e9d35b119ea819e5e54f637826a69a28884734d3f75091edc
+[+] get tag = c190b1ea96426769580231b8bf6943f5
 
-----------
+--------------------
 Decryption Oracle
-----------
-[+] send nonce = aba587ee1f07f7802dcbe9d2f52d6de2
-[+] send tag = 62818b32fc0019ac56f82bbacbb1e06b
-[+] send cipher = ca847e0b6dd7034dcf82a5e62e474c26814131a93a46ccc4f1662a71bed1ac14
+--------------------
+[+] send nonce = 7fae5d06a9257d3b9721a68b1743f531
+[+] send cipher = 1408ab9670ca67e0035da81f4a41d6d2d2ae7ed8516b61076719780252589fc4
+[+] send tag = 9e079027bad2d3f99deb50f0cf92fca9
 [+] get auth = True
-[+] get plain = 05a63dcd7989095eef763df8be1d2945ecc79358e209d690ad69519b6ee804d3
+[+] get plain = dafab8e1f74c7d19fa2cc91bb8d9011a5c231d3093291644c70cb9f64628bbda
 
-----------
+--------------------
 Encryption Oracle
-----------
-[+] send nonce = 7116ea87b44966b9ce798bc95667bfce
-[+] send plain = fa733c1798e2bf2fb9d2c6823c3a9e6c00000000000000000000000000000000
-[+] get tag = 6a6daf45a826f61ef43b0366483ede29
-[+] get cipher = c03716c1ed4b32a8de0bd6b9f6b4ff620f2bb9a8fc104277cef84630c186d529
+--------------------
+[+] send nonce = 99966a09457ec8b764bcf16d47a1dc3a
+[+] send plain = c201f44317e74fb2267eb06462af41c400000000000000000000000000000000
+[+] get cipher = 7ea9f19f9ff0857e56226347dbd078e89354987c21ca1a547cb8eac39514f968
+[+] get tag = 7b510f27aaf4d0971ceeed4bd65d5915
 
-----------
+--------------------
 Decryption Oracle
-----------
-[+] send nonce = 861a6e94d8cc667a64c8e12db0412bb1
-[+] send tag = 3f1f53ca6b9ee985b75c189c13596aa5
-[+] send cipher = 9c0032302d6c4cee0f2650d25877ff161e079dbcdf6cff91e3a4774eee719bad5045f91788c1902204d12b169d8435a0
+--------------------
+[+] send nonce = 6cc906be9216eb2f1de590b708dd5620
+[+] send cipher = a900f292b70f63ba435102d53ff4f4f0ac2afa95ce1ab2c15f07633c30112d2fbd0de6fc612a79457998a0d3e2176a86
+[+] send tag = 4a53551171401de90517f72479c5b27c
 [+] get auth = True
-[+] get plain = 124ed32863df62c9abb1ae0affed5bbfe5922a0a6f18acdb1ff080f445f587ce6abe60be59aa54cf3799d4dbd85f7e8c
-
-----------
-Encryption Oracle
-----------
-[+] send nonce = cef6d94892279e71bf32a709dca1b120
-[+] send plain = 0785f5770b306a926fcaca3882dc68d000000000000000000000000000000080f5f96b73af8f8d36365391fea516269b
-[+] get tag = a535f0d64bfb1b5c867ec630674eca6e
-[+] get cipher = d3f1d2f0a8a79bf5066332d873cae78ea61db6f317dd651fa80f0bea8d8e062e65099674d668e8f09a90ee1abd0996d9
-
-----------
-Decryption Oracle
-----------
-[+] send nonce = cef6d94892279e71bf32a709dca1b120
-[+] send tag = 90f0fd0779e765c6acc37fe4181fb042
-[+] send cipher = d3f1d2f0a8a79bf5066332d873cae78ea19843841ced0f8dc7c5c1d20f526e7e
-[+] get auth = True
-[+] get plain = 0785f5770b306a926fcaca3882dc68d0465f55ab6c183c206659969b90b6ab52
-
-----------
-Encryption Oracle
-----------
-[+] send nonce = 2768a51938a441cb6b0364690be90951
-[+] send plain = 04cb27285d483eb01ddab1a023855b7a00000000000000000000000000000000
-[+] get tag = 1afbb254eeb153e55da26dbb603e8ee0
-[+] get cipher = dcc29c94e70ca5b5361dc6deb02447b5086bd5a90bb20fdfac2320cae3b1ef45
-
-----------
-Decryption Oracle
-----------
-[+] send nonce = 861a6e94d8cc667a64c8e12db0412bb1
-[+] send tag = 3f1f53ca6b9ee985b75c189c13596aa5
-[+] send cipher = 97c204333030879fe9c0513bf0d225a615c5abbfc23034e0054276a746d4411d5045f91788c1902204d12b169d8435a0
-[+] get auth = True
-[+] get plain = 6c57b3858044d4d51594a6815b5639c59b8b4aa78c831ac7a1d5887fe14ee5b46abe60be59aa54cf3799d4dbd85f7e8c
+[+] get plain = e4cef9b09d1b64fe1445213c5cf436d4da6fb194c0a92d363244725c6eb68ccdd784d51e79ba1a08bb52719700596e0f
 
 result = Plaintext Recovered
 ```
