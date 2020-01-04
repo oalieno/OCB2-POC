@@ -1,10 +1,21 @@
 #!/usr/bin/env python3
-from remote import Remote
+from pwn import remote
 from block import Block
+
+def log_function(description):
+    def wrapperer(func):
+        def wrapper(*args):
+            print('-' * 20)
+            print(description)
+            print('-' * 20)
+            results = func(*args)
+            return results
+        return wrapper
+    return wrapperer
 
 class Oracle:
     def __init__(self, ip, port):
-        self.r = Remote(ip, port)
+        self.r = remote(ip, port)
 
     def __del__(self): 
         self.r.sendline('3')
@@ -23,29 +34,25 @@ class Oracle:
         self.r.sendlineafter(f'{text} = ', data.hex())
         print(f'[+] send {text} = {data.hex()}')
 
+    @log_function("Encryption Oracle")
     def encrypt(self, N, M):
-        print('-' * 10)
-        print('Encryption Oracle')
-        print('-' * 10)
         self.r.sendlineafter('> ', '1')
         self.sendData('nonce', N)
         self.sendData('plain', M)
-        T = Block(self.getData('tag'))
         C = Block(self.getData('cipher'))
+        T = Block(self.getData('tag'))
         print()
-        return T, C
+        return C, T
 
-    def decrypt(self, N, T, C):
-        print('-' * 10)
-        print('Decryption Oracle')
-        print('-' * 10)
+    @log_function("Decryption Oracle")
+    def decrypt(self, N, C, T):
         self.r.sendlineafter('> ', '2')
         self.sendData('nonce', N)
-        self.sendData('tag', T)
         self.sendData('cipher', C)
+        self.sendData('tag', T)
         auth = self.getData('auth', hex = False)
         M = None
         if auth == 'True':
             M = Block(self.getData('plain'))
         print()
-        return auth, M
+        return auth == 'True', M

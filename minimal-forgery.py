@@ -7,13 +7,13 @@ oracle = Oracle('127.0.0.1', 20000)
 
 N = Block.random(16)
 M = Block.len(16) + Block.random(16)
-T, C = oracle.encrypt(N, M)
+C, T = oracle.encrypt(N, M)
 
-T_ = M[2] ^ C[2]
-C_ = C[1] ^ Block.len(16)
-auth, M_ = oracle.decrypt(N, T_, C_)
+C_ = C[0] ^ Block.len(16)
+T_ = M[1] ^ C[1]
+auth, M_ = oracle.decrypt(N, C_, T_)
 
-if auth == 'True':
+if auth:
     print(f'result = {green("Authenticated")}')
 else:
     print(f'result = {red("Not Authenticated")}')
